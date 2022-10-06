@@ -1,0 +1,28 @@
+{
+  "name": "carrot-events",
+  "version": "0.0.1",
+  "description": "The carrot events app",
+  "scripts": {
+    "start": "node index.js",
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/imvanzen/carrot-events.git"
+  },
+  "keywords": [
+    "Carrot",
+    "Events",
+    "App",
+    "Brainhub"
+  ],
+  "author": "@imvanzen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/imvanzen/carrot-events/issues"
+  },
+  "homepage": "https://github.com/imvanzen/carrot-events#readme",
+  "dependencies": {
+    "body-parser": "^1.20.1"
+  }
+}
