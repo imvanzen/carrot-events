@@ -1,21 +1,21 @@
-'use strict';
-const express = require('express');
+'use strict'
+const express = require('express')
 const bodyParser = require('body-parser')
-const app = express();
+const app = express()
 
 app.use(bodyParser.json())
 
 // Constants
-const PORT = process.env.PORT || 5000;
-const HOST = '0.0.0.0';
+const PORT = process.env.PORT || 5000
+const HOST = '0.0.0.0'
 
 // App
 app.get('/', (req, res) => {
-    res.json({ message: 'ok' });
+    res.json({ message: 'ok' })
 });
 
-app.use('/users', routes.users);
-app.use('/events', routes.events);
+app.use('/users', routes.users)
+app.use('/events', routes.events)
 
 app.listen(PORT, HOST);
-console.log(`Running on http://${HOST}:${PORT}`);
+console.log(`Running on http://${HOST}:${PORT}`)
