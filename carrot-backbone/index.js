@@ -14,6 +14,8 @@ app.get('/', (req, res) => {
     res.json({ message: 'ok' })
 });
 
+const routes = require('./src/routes')
+
 app.use('/users', routes.users)
 app.use('/events', routes.events)
 
