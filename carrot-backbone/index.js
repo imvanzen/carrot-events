@@ -14,5 +14,8 @@ app.get('/', (req, res) => {
     res.json({ message: 'ok' });
 });
 
+app.use('/users', routes.users);
+app.use('/events', routes.events);
+
 app.listen(PORT, HOST);
 console.log(`Running on http://${HOST}:${PORT}`);
