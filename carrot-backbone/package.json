@@ -1,0 +1,26 @@
+{
+  "name": "carrot-backbone",
+  "version": "0.0.1",
+  "description": "The server of the carrot events app",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/imvanzen/carrot-events.git"
+  },
+  "keywords": [
+    "Carrot",
+    "Events",
+    "App",
+    "Brainhub"
+  ],
+  "author": "@imvanzen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/imvanzen/carrot-events/issues"
+  },
+  "homepage": "https://github.com/imvanzen/carrot-events#readme"
+}
