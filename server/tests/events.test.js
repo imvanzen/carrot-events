@@ -28,17 +28,19 @@ describe('Event routes', () => {
     })
 
     test('should return 200 and event by ID', async () => {
+        const userId = "123";
         const req = await agent
-            .get('/v1/events')
+            .get(`/v1/events/${userId}`)
             .send()
             .expect(httpStatus.OK)
 
-        expect(req.body).toEqual({ id: 1 })
+        expect(req.body).toEqual({ id: userId })
     })
 
     test('should return 404 and no event by ID', async () => {
+        const userId = "123";
         const req = await agent
-            .get('/v1/events')
+            .get(`/v1/events/${userId}`)
             .send()
             .expect(httpStatus.NOT_FOUND)
     })
