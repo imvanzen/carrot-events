@@ -1,3 +1,4 @@
+const ApiError = require('../utils/ApiError')
 const eventsRepository = require('../repositories/events.js')
 
 const getEvents = async () => {
@@ -13,7 +14,7 @@ const createEvent = async (event) => {
 const getEventById = async (id) => {
     const event = await eventsRepository.findOne(id)
     if (!event) {
-        throw new Error('Event not found')
+        throw new ApiError(httpStatus.NOT_FOUND, 'Not found')
     }
     return event
 }
@@ -21,7 +22,7 @@ const getEventById = async (id) => {
 const updateEventById = async (id, newEvent) => {
     const event = await eventsRepository.findOne(id)
     if (!event) {
-        throw new Error('Event not found')
+        throw new ApiError(httpStatus.NOT_FOUND, 'Not found')
     }
     const updatedEvent = await eventsRepository.update(id, newEvent)
     return updatedEvent
@@ -30,7 +31,7 @@ const updateEventById = async (id, newEvent) => {
 const deleteEventById = async (id) => {
     const event = await eventsRepository.findOne(id)
     if (!event) {
-        throw new Error('Event not found')
+        throw new ApiError(httpStatus.NOT_FOUND, 'Not found')
     }
     const result = await eventsRepository.remove(id)
     return result
