@@ -50,3 +50,4 @@ If you have any questions, don't be afraid to ask. Good luck!
      - [ ] Test Events List
      - [ ] Event Create Form Component
      - [ ] Test Events Create Form
+ - [ ] Overview & Docs update
