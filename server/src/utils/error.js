@@ -14,8 +14,7 @@ const errorConverter = (err, req, res, next) => {
 const errorHandler = (err, req, res, next) => {
     const response = {
         code: err.statusCode,
-        message: err.message,
-        stack: err.stack,
+        message: err.message
     }
 
     res.status(err.statusCode).send(response)
