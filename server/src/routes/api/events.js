@@ -6,7 +6,7 @@ const eventController = require('../../controllers/events')
 
 const paramsSchema = (
     Joi.object().keys({
-        eventId: Joi.required().guid(),
+        eventId: Joi.string().guid(),
     })
 )
 
@@ -14,8 +14,8 @@ const bodySchema = (
     Joi.object().keys({
         first_name: Joi.string().required(),
         last_name: Joi.string().required(),
-        email: Joi.string().required().email(),
-        event_date: Joi.string().required()
+        email: Joi.string().email().required(),
+        event_date: Joi.string().isoDate().required()
     })
 )
 
