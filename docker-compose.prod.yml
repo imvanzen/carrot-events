@@ -1,0 +1,9 @@
+# docker-compose.prod.yml
+version: '3'
+
+services:
+  event-app-server:
+    container_name: event-app-server-prod
+    environment:
+      NODE_ENV: production
+    command: npm run start

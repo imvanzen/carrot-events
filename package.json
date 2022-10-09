@@ -1,0 +1,26 @@
+{
+    "name": "events-app",
+    "version": "0.0.1",
+    "description": "The carrot events app",
+    "scripts": {
+        "docker:prod": "docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d",
+        "docker:dev": "docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d",
+        "docker:test": "docker-compose -f docker-compose.yml -f docker-compose.test.yml up -d"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/imvanzen/carrot-events.git"
+    },
+    "keywords": [
+        "Carrot",
+        "Events",
+        "App",
+        "Brainhub"
+    ],
+    "author": "@imvanzen",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/imvanzen/carrot-events/issues"
+    },
+    "homepage": "https://github.com/imvanzen/carrot-events#readme"
+}

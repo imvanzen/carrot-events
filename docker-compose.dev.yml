@@ -1,0 +1,9 @@
+# docker-compose.dev.yml
+version: '3'
+
+services:
+  event-app-server:
+    container_name: event-app-server-dev
+    environment:
+      NODE_ENV: development
+    command: npm run dev
