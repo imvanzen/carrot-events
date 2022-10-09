@@ -2,7 +2,7 @@ const request = require('supertest')
 const httpStatus = require('http-status')
 const app = require('../src/app')
 
-describe('App', () => {
+describe('App Status routes', () => {
     let server, agent;
 
     beforeEach(done => {
@@ -18,7 +18,7 @@ describe('App', () => {
         server.close(done)
     })
 
-    test('Does startup', async () => {
+    test('should return 200', async () => {
         const req = await agent
             .get('/v1/status')
             .send()
