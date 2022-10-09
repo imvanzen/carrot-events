@@ -4,7 +4,7 @@
   "description": "The server of the carrot events app",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest -i --colors --verbose --detectOpenHandles"
   },
   "repository": {
     "type": "git",
