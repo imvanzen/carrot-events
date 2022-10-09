@@ -12,6 +12,15 @@ const generateEvent = () => {
     }
 }
 
+const generateEventWithId = () => {
+    const newEvent = generateEvent();
+    return {
+        id: faker.datatype.uuid(),
+        ...newEvent
+    }
+}
+
 module.exports = {
-    generateEvent
+    generateEvent,
+    generateEventWithId,
 };
