@@ -1,22 +1,28 @@
 const httpStatus = require("http-status")
+const eventsService = require('../services/events')
 
-const getEvents = (req, res) => {
-    res.status(httpStatus.OK).json([{ id: 1 }, { id: 2 }])
+const getEvents = async (req, res) => {
+    const events = await eventsService.getEvents()
+    res.status(httpStatus.OK).json(events)
 }
 
-const createEvent = (req, res) => {
-    res.status(httpStatus.ACCEPTED).json({ id: req.params.eventId })
+const createEvent = async (req, res) => {
+    const event = await eventsService.createEvent(req.body)
+    res.status(httpStatus.ACCEPTED).json(event)
 }
 
-const getEvent = (req, res) => {
-    res.status(httpStatus.OK).json({ id: req.params.eventId })
+const getEvent = async (req, res) => {
+    const event = await eventsService.getEventById(req.params.eventId)
+    res.status(httpStatus.OK).json(event)
 }
 
-const updateEvent = (req, res) => {
-    res.status(httpStatus.ACCEPTED).json({ id: req.params.eventId })
+const updateEvent = async (req, res) => {
+    const event = await eventsService.getEventById(req.params.eventId, req.body)
+    res.status(httpStatus.ACCEPTED).json(event)
 }
 
-const deleteEvent = (req, res) => {
+const deleteEvent = async (req, res) => {
+    await eventsService.getEventById(req.params.eventId, req.body)
     res.status(httpStatus.NO_CONTENT).send()
 }
 
