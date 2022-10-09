@@ -5,7 +5,6 @@ _Made with 💕 for Brainhub_
 At the beginning of October, I started the interview process with the software house named Brainhub. They are based in the city of Gliwice so it's my area. The position I am applying for is the Full stack software developer. They send me the following task and they gave me one week to solve it. This is my attempt.
 
 ## Description
-
 In the beginning, we want you to create a simple app with frontend implemented in React and connected with a simple API written in Node.js with data saved in DB (e.g., MongoDB, PostgreSQL, SQLite, MySQL).
 
 The application should allow a user to add an event to the database, with the
@@ -25,3 +24,29 @@ What's essential for us?:
  - [ ] Code readability and extensibility
 
 If you have any questions, don't be afraid to ask. Good luck!
+## Milestones
+ - [ ] Setup Containers
+  - [ ] Database 
+  - [ ] Server
+  - [ ] Website
+ - [ ] Setup Simple Test for startup
+  - [ ] Server
+  - [ ] Website
+ - [ ] Server Functionality
+  - [ ] Events Resource API
+   - [ ] Create Event
+   - [ ] Test Create
+   - [ ] Validate Event
+   - [ ] Test Validate
+   - [ ] List Events
+   - [ ] Test List
+  - [ ] API Error Handling - Beautyful
+   - [ ] 400
+   - [ ] 404
+   - [ ] 500
+  - [ ] Website Functionality
+   - [ ] Website Startup Test
+   - [ ] Events List Component
+   - [ ] Test Events List
+   - [ ] Event Create Form Component
+   - [ ] Test Events Create Form
