@@ -1,23 +1,23 @@
 const httpStatus = require("http-status")
 
 const getEvents = async () => {
-    return new Promise.resolve([{ id: 1 }, { id: 2 }])
+    return Promise.resolve([{ id: 1 }, { id: 2 }])
 }
 
 const createEvent = async (event) => {
-    return new Promise.resolve(event)
+    return Promise.resolve(event)
 }
 
 const getEventById = async (id) => {
-    return new Promise.resolve({ id })
+    return Promise.resolve({ id })
 }
 
 const updateEventById = async (id, event) => {
-    return new Promise.resolve({ id, ...event })
+    return Promise.resolve({ id, ...event })
 }
 
 const deleteEventById = async (id) => {
-    return new Promise.resolve(null);
+    return Promise.resolve(null);
 }
 
 module.exports = {
