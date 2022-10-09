@@ -1,3 +1,4 @@
+const httpStatus = require('http-status')
 const ApiError = require('../utils/ApiError')
 const eventsRepository = require('../repositories/events.js')
 
