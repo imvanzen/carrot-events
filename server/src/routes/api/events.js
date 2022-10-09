@@ -1,8 +1,13 @@
 const express = require('express')
 const router = express.Router()
+const eventController = require('../../controllers/events')
 
 router
-    .get('/', (req, res) => res.json([{ id: 1 }, { id: 2 }]))
-    .get('/:eventId', (req, res) => res.json({ id: req.params.eventId }))
+    .route('/')
+    .get(eventController.getEvents)
+
+router
+    .route('/:eventId')
+    .get(eventController.getEvent)
 
 module.exports = router
