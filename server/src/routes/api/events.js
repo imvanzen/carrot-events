@@ -21,8 +21,8 @@ const bodySchema = (
 
 const createEvent = { body: bodySchema }
 const getEvent = { params: paramsSchema }
-const updateEvent = { params: bodySchema, body: bodySchema }
-const deleteEvent = { params: bodySchema }
+const updateEvent = { params: paramsSchema, body: bodySchema }
+const deleteEvent = { params: paramsSchema }
 
 router
     .route('/')
