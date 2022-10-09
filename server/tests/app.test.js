@@ -20,7 +20,7 @@ describe('App', () => {
 
     test('Does startup', async () => {
         const req = await agent
-            .get('/')
+            .get('/v1/status')
             .send()
             .expect(httpStatus.OK)
     })
