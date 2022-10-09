@@ -26,27 +26,27 @@ What's essential for us?:
 If you have any questions, don't be afraid to ask. Good luck!
 ## Milestones
  - [ ] Setup Containers
-  - [ ] Database 
-  - [ ] Server
-  - [ ] Website
+   - [ ] Database 
+   - [ ] Server
+   - [ ] Website
  - [ ] Setup Simple Test for startup
-  - [ ] Server
-  - [ ] Website
+   - [ ] Server
+   - [ ] Website
  - [ ] Server Functionality
-  - [ ] Events Resource API
-   - [ ] Create Event
-   - [ ] Test Create
-   - [ ] Validate Event
-   - [ ] Test Validate
-   - [ ] List Events
-   - [ ] Test List
-  - [ ] API Error Handling - Beautyful
-   - [ ] 400
-   - [ ] 404
-   - [ ] 500
-  - [ ] Website Functionality
-   - [ ] Website Startup Test
-   - [ ] Events List Component
-   - [ ] Test Events List
-   - [ ] Event Create Form Component
-   - [ ] Test Events Create Form
+   - [ ] Events Resource API
+     - [ ] Create Event
+     - [ ] Test Create
+     - [ ] Validate Event
+     - [ ] Test Validate
+     - [ ] List Events
+     - [ ] Test List
+   - [ ] API Error Handling - Beautyful
+     - [ ] 400
+     - [ ] 404
+     - [ ] 500
+   - [ ] Website Functionality
+     - [ ] Website Startup Test
+     - [ ] Events List Component
+     - [ ] Test Events List
+     - [ ] Event Create Form Component
+     - [ ] Test Events Create Form
