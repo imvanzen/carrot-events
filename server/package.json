@@ -4,6 +4,8 @@
   "description": "The server of the carrot events app",
   "main": "index.js",
   "scripts": {
+    "start": "NODE_ENV=production node src/index.js",
+    "dev": "NODE_ENV=development node src/index.js",
     "test": "jest -i --colors --verbose --detectOpenHandles"
   },
   "repository": {
@@ -25,6 +27,7 @@
   "dependencies": {
     "debug": "^4.3.4",
     "express": "^4.18.2",
+    "http-status": "^1.5.3",
     "pg": "^8.8.0"
   },
   "devDependencies": {
