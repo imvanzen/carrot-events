@@ -2,20 +2,13 @@ const request = require('supertest')
 const httpStatus = require('http-status')
 const { faker } = require('@faker-js/faker')
 const app = require('../src/app')
+const { generateEvent } = require('./fixtures')
 
 describe('Event routes', () => {
     let server, agent, newEvent
 
     beforeEach(done => {
-        const firstName = faker.name.firstName()
-        const lastName = faker.name.lastName()
-
-        newEvent = {
-            firstName,
-            lastName,
-            email: faker.internet.email(firstName, lastName).toLowerCase(),
-            eventDate: faker.date.soon()
-        }
+        newEvent = generateEvent();
 
         server = app.listen(5001, err => {
             if (err) return done(err)
