@@ -17,12 +17,12 @@ const getEvent = async (req, res) => {
 }
 
 const updateEvent = async (req, res) => {
-    const event = await eventsService.getEventById(req.params.eventId, req.body)
+    const event = await eventsService.updateEventById(req.params.eventId, req.body)
     res.status(httpStatus.ACCEPTED).json(event)
 }
 
 const deleteEvent = async (req, res) => {
-    await eventsService.getEventById(req.params.eventId, req.body)
+    await eventsService.deleteEventById(req.params.eventId)
     res.status(httpStatus.NO_CONTENT).send()
 }
 
