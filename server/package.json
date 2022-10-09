@@ -4,8 +4,8 @@
   "description": "The server of the carrot events app",
   "main": "index.js",
   "scripts": {
-    "start": "NODE_ENV=production node src/index.js",
-    "dev": "NODE_ENV=development node src/index.js",
+    "start": "node src/index.js",
+    "dev": "node src/index.js",
     "test": "jest -i --colors --verbose"
   },
   "repository": {
