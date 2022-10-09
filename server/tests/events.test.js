@@ -2,7 +2,7 @@ const request = require('supertest')
 const httpStatus = require('http-status')
 const { faker } = require('@faker-js/faker')
 const app = require('../src/app')
-const { generateEvent } = require('./fixtures')
+const { eventOne, eventTwo, generateEvent, insertEvents } = require('./fixtures')
 
 describe('Event routes', () => {
     let server, agent, newEvent

@@ -20,7 +20,14 @@ const generateEventWithId = () => {
     }
 }
 
+const eventOne = generateEvent();
+const eventTwo = generateEvent();
+const eventThree = generateEvent();
+
 module.exports = {
+    eventOne,
+    eventTwo,
+    eventThree,
     generateEvent,
     generateEventWithId,
 };
