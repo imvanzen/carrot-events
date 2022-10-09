@@ -26,4 +26,20 @@ describe('Event routes', () => {
 
         expect(req.body).toEqual([{ id: 1 }, { id: 2 }])
     })
+
+    test('should return 200 and event by ID', async () => {
+        const req = await agent
+            .get('/v1/events')
+            .send()
+            .expect(httpStatus.OK)
+
+        expect(req.body).toEqual({ id: 1 })
+    })
+
+    test('should return 404 and no event by ID', async () => {
+        const req = await agent
+            .get('/v1/events')
+            .send()
+            .expect(httpStatus.NOT_FOUND)
+    })
 })
