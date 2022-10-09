@@ -33,17 +33,17 @@ If you have any questions, don't be afraid to ask. Good luck!
    - [x] Server
    - [ ] Website
  - [ ] Server Functionality
-   - [ ] Events Resource API
-     - [ ] Create Event
+   - [x] Events Resource API
+     - [x] Create Event
      - [ ] Test Create
      - [ ] Validate Event
      - [ ] Test Validate
-     - [ ] List Events
+     - [x] List Events
      - [ ] Test List
    - [ ] API Error Handling - Beautyful
      - [ ] 400
-     - [ ] 404
-     - [ ] 500
+     - [x] 404
+     - [x] 500
    - [ ] Website Functionality
      - [ ] Website Startup Test
      - [ ] Events List Component
