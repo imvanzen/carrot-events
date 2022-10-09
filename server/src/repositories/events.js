@@ -2,7 +2,7 @@ const db = require('../services/pg')
 
 const findAll = async () => {
     try {
-        const result = await db.query('SELECT * FROM events WHERE deleted_at IS NULL ORDER BY created_at ASC', [])
+        const result = await db.query('SELECT * FROM carrot_events.events WHERE deleted_at IS NULL ORDER BY created_at ASC', [])
         console.log('Query response', result)
         return result.rows
     } catch (err) {
@@ -13,9 +13,9 @@ const findAll = async () => {
 
 const create = async (event) => {
     try {
-        const event = { first_name, last_name, email, event_date };
+        const { first_name, last_name, email, event_date } = event;
         const result = await db.query(
-            `INSERT INTO events (uuid_generate_v4(), first_name, last_name, email, event_date) VALUES ($1, $2, $3, $4) RETURNING *`,
+            `INSERT INTO carrot_events.events (uuid_generate_v4(), first_name, last_name, email, event_date) VALUES ($1, $2, $3, $4) RETURNING *`,
             [first_name, last_name, email, event_date]
         )
         console.log('Query response', event, result)
@@ -29,7 +29,7 @@ const create = async (event) => {
 const findOne = async (id) => {
     try {
         const result = await db.query(
-            'SELECT * FROM events WHERE id = $1 AND deleted_at IS NULL',
+            'SELECT * FROM carrot_events.events WHERE id = $1 AND deleted_at IS NULL',
             [id]
         )
         console.log('Query response', id, result)
@@ -44,7 +44,7 @@ const update = async (id, event) => {
     try {
         const { first_name, last_name, email, event_date } = event;
         const result = await db.query(
-            `UPDATE events SET (
+            `UPDATE carrot_events.events SET (
                 first_name = $2,
                 last_name = $3,
                 email = $4,
@@ -66,7 +66,7 @@ const update = async (id, event) => {
 const remove = async (id) => {
     try {
         const result = await db.query(
-            `UPDATE events SET (
+            `UPDATE carrot_events.events SET (
                 deleted_at = NOW()
             ) 
             WHERE id = $1 AND deleted_at IS NULL
