@@ -1,3 +1,4 @@
+const uuid4 = require('uuid4')
 const db = require('../services/pg')
 
 const findAll = async () => {
@@ -15,8 +16,8 @@ const create = async (event) => {
     try {
         const { first_name, last_name, email, event_date } = event;
         const result = await db.query(
-            `INSERT INTO carrot_events.events (uuid_generate_v4(), first_name, last_name, email, event_date) VALUES ($1, $2, $3, $4) RETURNING *`,
-            [first_name, last_name, email, event_date]
+            `INSERT INTO carrot_events.events (id, first_name, last_name, email, event_date) VALUES ($1, $2, $3, $4, $5) RETURNING *`,
+            [uuid4(), first_name, last_name, email, event_date]
         )
         console.log('Query response', event, result)
         return result.rows[0]
