@@ -25,12 +25,12 @@ What's essential for us?:
 
 If you have any questions, don't be afraid to ask. Good luck!
 ## Milestones
- - [ ] Setup Containers
-   - [ ] Database 
-   - [ ] Server
+ - [x] Setup Containers
+   - [x] Database 
+   - [x] Server
    - [ ] Website
- - [ ] Setup Simple Test for startup
-   - [ ] Server
+ - [x] Setup Simple Test for startup
+   - [x] Server
    - [ ] Website
  - [ ] Server Functionality
    - [ ] Events Resource API
