@@ -1,23 +1,39 @@
-const httpStatus = require("http-status")
+const eventsRepository = require('../repositories/events.js')
 
 const getEvents = async () => {
-    return Promise.resolve([{ id: 1 }, { id: 2 }])
+    const events = await eventsRepository.findAll()
+    return events
 }
 
 const createEvent = async (event) => {
-    return Promise.resolve(event)
+    const events = await eventsRepository.create(event)
+    return events
 }
 
 const getEventById = async (id) => {
-    return Promise.resolve({ id })
+    const event = await eventsRepository.findOne(id)
+    if (!event) {
+        throw new Error('Event not found')
+    }
+    return event
 }
 
-const updateEventById = async (id, event) => {
-    return Promise.resolve({ id, ...event })
+const updateEventById = async (id, newEvent) => {
+    const event = await eventsRepository.findOne(id)
+    if (!event) {
+        throw new Error('Event not found')
+    }
+    const updatedEvent = await eventsRepository.update(id, newEvent)
+    return updatedEvent
 }
 
 const deleteEventById = async (id) => {
-    return Promise.resolve(null);
+    const event = await eventsRepository.findOne(id)
+    if (!event) {
+        throw new Error('Event not found')
+    }
+    const result = await eventsRepository.remove(id)
+    return result
 }
 
 module.exports = {
