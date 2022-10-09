@@ -6,7 +6,7 @@
   "scripts": {
     "start": "NODE_ENV=production node src/index.js",
     "dev": "NODE_ENV=development node src/index.js",
-    "test": "jest -i --colors --verbose --detectOpenHandles"
+    "test": "jest -i --colors --verbose"
   },
   "repository": {
     "type": "git",
