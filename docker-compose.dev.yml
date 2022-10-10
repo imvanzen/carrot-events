@@ -2,6 +2,12 @@
 version: '3'
 
 services:
+  event-app-web:
+    container_name: event-app-web-dev
+    environment:
+      NODE_ENV: development
+    command: npm run dev
+
   event-app-server:
     container_name: event-app-server-dev
     environment:
