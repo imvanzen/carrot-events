@@ -1,14 +1,14 @@
 const { faker } = require('@faker-js/faker');
 
 const generateEvent = () => {
-    const firstName = faker.name.firstName()
-    const lastName = faker.name.lastName()
+    const first_name = faker.name.firstName()
+    const last_name = faker.name.lastName()
 
     return {
-        firstName,
-        lastName,
-        email: faker.internet.email(firstName, lastName).toLowerCase(),
-        eventDate: faker.date.soon()
+        first_name,
+        last_name,
+        email: faker.internet.email(first_name, last_name).toLowerCase(),
+        event_date: faker.date.soon()
     }
 }
 
