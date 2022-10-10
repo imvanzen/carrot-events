@@ -34,7 +34,7 @@ describe('Event routes', () => {
     test('should return 200 and event by ID', async () => {
         const eventId = "123"
         const req = await agent
-            .get(`/v1/events/${eventId}`)
+            .get(`/v1/events/${userId}`)
             .send()
             .expect(httpStatus.OK)
 
@@ -44,7 +44,7 @@ describe('Event routes', () => {
     test('should return 404 and no event by ID', async () => {
         const eventId = "123"
         const req = await agent
-            .get(`/v1/events/${eventId}`)
+            .get(`/v1/events/${userId}`)
             .send()
             .expect(httpStatus.NOT_FOUND)
     })
@@ -59,12 +59,12 @@ describe('Event routes', () => {
     test('should return 400 when creating event but any param in missed', async () => {
         await agent
             .post(`/v1/events`)
-            .send({ ...newEvent, first_name: undefined })
+            .send({ ...newEvent, firstName: undefined })
             .expect(httpStatus.BAD_REQUEST)
 
         await agent
             .post(`/v1/events`)
-            .send({ ...newEvent, last_name: undefined })
+            .send({ ...newEvent, lastName: undefined })
             .expect(httpStatus.BAD_REQUEST)
 
         await agent
@@ -74,7 +74,7 @@ describe('Event routes', () => {
 
         await agent
             .post(`/v1/events`)
-            .send({ ...newEvent, event_date: undefined })
+            .send({ ...newEvent, eventDate: undefined })
             .expect(httpStatus.BAD_REQUEST)
     })
 

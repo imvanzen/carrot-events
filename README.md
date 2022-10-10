@@ -36,7 +36,7 @@ If you have any questions, don't be afraid to ask. Good luck!
    - [x] Events Resource API
      - [x] Create Event
      - [ ] Test Create
-     - [x] Validate Event
+     - [ ] Validate Event
      - [ ] Test Validate
      - [x] List Events
      - [ ] Test List
