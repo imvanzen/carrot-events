@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 
-const EventsList = ({ items }) => {
+const EventsList = ({ events }) => {
+    const eventsList = events.map(event => (
+        <VideoItem key={event.id} event={event} />
+    ));
     return (
         <div className='events-list'>
-
+            {eventsList || <div>No events yet</div>}
         </div>
     )
 }
