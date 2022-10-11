@@ -6,7 +6,7 @@ services:
     container_name: event-app-web-dev
     environment:
       NODE_ENV: development
-    command: npm run dev
+    command: npm run start
 
   event-app-server:
     container_name: event-app-server-dev

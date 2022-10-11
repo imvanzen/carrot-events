@@ -6,7 +6,7 @@ services:
     container_name: event-app-web-prod
     environment:
       NODE_ENV: production
-    command: npm run prod
+    command: npm run build
 
   event-app-server:
     container_name: event-app-server-prod
