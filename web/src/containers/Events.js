@@ -14,7 +14,7 @@ const Events = () => {
         <div className='events' style={{ marginTop: '10px' }}>
             <Header />
             <div className="ui segment">
-                <Route path='/' render={<EventsList items={events} />} />
+                <Route path='/' render={<EventsList events={events} />} />
                 <Route path='/add-event' render={<EventAddForm />} />
             </div>
         </div>
