@@ -28,10 +28,10 @@ If you have any questions, don't be afraid to ask. Good luck!
  - [x] Setup Containers
    - [x] Database 
    - [x] Server
-   - [ ] Website
+   - [x] Website
  - [x] Setup Simple Test for startup
    - [x] Server
-   - [ ] Website
+   - [x] Website
  - [ ] Server Functionality
    - [x] Events Resource API
      - [x] Create Event
