@@ -45,8 +45,8 @@ const EventAddForm = ({ onSubmit }) => {
     }
 
     const isFormValid = () => {
-        console.log("isFormValid", form.errors, Object.values(form.errors).any(val => !val));
-        return Object.values(form.errors).any(val => !val)
+        console.log("isFormValid", form.errors, Object.values(form.errors).some(val => !val));
+        return Object.values(form.errors).some(val => !val)
     }
 
     return (
