@@ -6,7 +6,7 @@ services:
     restart: on-failure
     build: ./web/
     environment:
-      API_URL: http://${API_HOST}:${API_PORT}
+      REACT_APP_API_URL: http://${API_HOST}:${API_PORT}
     ports:
       - "${WEB_PORT}:${WEB_PORT}"
     volumes:
