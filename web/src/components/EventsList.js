@@ -1,8 +1,9 @@
 import React from 'react'
+import EventItem from './EventItem'
 
 const EventsList = ({ events }) => {
     const eventsList = events.map(event => (
-        <VideoItem key={event.id} event={event} />
+        <EventItem key={event.id} event={event} />
     ));
     return (
         <div className='events-list'>

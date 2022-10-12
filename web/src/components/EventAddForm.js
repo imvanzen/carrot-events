@@ -1,15 +1,41 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, isValidElement } from 'react'
 
-const EventAddForm = ({ onTermSubmit }) => {
+const EventAddForm = ({ onSubmit }) => {
     const [form, setForm] = useState({
-        first_name: null,
-        last_name: null,
-        email: null,
-        event_date: null,
+        first_name: "",
+        last_name: "",
+        email: "",
+        event_date: "",
+
+        errors: {
+            first_name: "",
+            last_name: "",
+            email: "",
+            event_date: "",
+        }
     })
 
+    const isFieldValid = (name, val) => {
+        const schema = {
+            first_name: /^([A-Za-b]+)$/i,
+            last_name: /^([A-Za-b]+)$/i,
+            email: /^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i,
+            event_date: /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2}(?:\.\d*)?)((-(\d{2}):(\d{2})|Z)?)$/gmi
+        }
+
+        return val.match(schema[name])
+    }
+
     const onInputChange = (name) => e => {
-        setForm({ ...form, [name]: e.target.value })
+        setForm({
+            ...form,
+            [name]: e.target.value,
+            errors: {
+                ...form.errors,
+                [name]: isFieldValid(name, e.target.value)
+            }
+        })
+
     }
 
     const onFormSubmit = e => {
@@ -18,13 +44,13 @@ const EventAddForm = ({ onTermSubmit }) => {
     }
 
     const isFormValid = () => {
-        return Object.values(form).any(val => !val)
+        return Object.values(form.errors).every(val => !val)
     }
 
     return (
         <div className="event-add-form ui segment">
-            <form class="ui form" onSubmit={onFormSubmit}>
-                <div class="field">
+            <form className="ui form" onSubmit={onFormSubmit}>
+                <div className="field">
                     <label>First Name</label>
                     <input
                         type="text"
@@ -33,7 +59,7 @@ const EventAddForm = ({ onTermSubmit }) => {
                         onChange={onInputChange('first_name')}
                         value={form.first_name} />
                 </div>
-                <div class="field">
+                <div className="field">
                     <label>Last Name</label>
                     <input
                         type="text"
@@ -42,7 +68,7 @@ const EventAddForm = ({ onTermSubmit }) => {
                         onChange={onInputChange('last_name')}
                         value={form.last_name} />
                 </div>
-                <div class="field">
+                <div className="field">
                     <label>Email</label>
                     <input
                         type="email"
