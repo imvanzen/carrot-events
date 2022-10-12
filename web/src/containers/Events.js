@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import EventsList from '../components/EventsList'
 import EventAddForm from '../components/EventAddForm'
-import Route from '../Route'
 
 import eventsApi from '../api/events'
 
@@ -22,8 +21,8 @@ const Events = () => {
 
     return (
         <div className='events ui segment'>
-            <Route path='/' render={<EventsList events={events} />} />
-            <Route path='/add-event' render={<EventAddForm onSubmit={onSubmit} />} />
+            <EventAddForm onSubmit={onSubmit} />
+            <EventsList events={events} />
         </div>
     )
 }

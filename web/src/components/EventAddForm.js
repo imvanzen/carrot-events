@@ -23,6 +23,8 @@ const EventAddForm = ({ onSubmit }) => {
             event_date: /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2}(?:\.\d*)?)((-(\d{2}):(\d{2})|Z)?)$/gmi
         }
 
+        console.log("isFieldValid", name, val, schema[name])
+
         return val.match(schema[name])
     }
 
@@ -35,7 +37,6 @@ const EventAddForm = ({ onSubmit }) => {
                 [name]: isFieldValid(name, e.target.value)
             }
         })
-
     }
 
     const onFormSubmit = e => {
@@ -44,7 +45,8 @@ const EventAddForm = ({ onSubmit }) => {
     }
 
     const isFormValid = () => {
-        return Object.values(form.errors).every(val => !val)
+        console.log("isFormValid", form.errors, Object.values(form.errors).any(val => !val));
+        return Object.values(form.errors).any(val => !val)
     }
 
     return (
@@ -78,7 +80,10 @@ const EventAddForm = ({ onSubmit }) => {
                         value={form.email} />
                 </div>
 
-                <button class="ui button" type="submit" disabled={isFormValid()}>Submit</button>
+                <button
+                    className="ui button"
+                    type="submit"
+                    disabled={isFormValid()}>Submit</button>
             </form>
         </div>
     )
