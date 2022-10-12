@@ -1,4 +1,6 @@
-import React, { useState, useEffect, isValidElement } from 'react'
+import React, { useState } from 'react'
+import SemanticDatepicker from 'react-semantic-ui-datepickers';
+import 'react-semantic-ui-datepickers/dist/react-semantic-ui-datepickers.css';
 
 const EventAddForm = ({ onSubmit }) => {
     const [form, setForm] = useState({
@@ -26,6 +28,15 @@ const EventAddForm = ({ onSubmit }) => {
         console.log("isFieldValid", name, val, schema[name])
 
         return val.match(schema[name])
+    }
+
+    const onDateTimeChange = (event, data) => {
+        console.log(event.target.value)
+        console.log(data)
+        setForm({
+            ...form,
+            event_date: data.value
+        })
     }
 
     const onInputChange = (name) => e => {
@@ -78,6 +89,10 @@ const EventAddForm = ({ onSubmit }) => {
                         placeholder="Email"
                         onChange={onInputChange('email')}
                         value={form.email} />
+                </div>
+
+                <div className="field">
+                    <SemanticDatepicker onChange={onDateTimeChange} />
                 </div>
 
                 <button
