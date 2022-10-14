@@ -59,10 +59,10 @@ If you have any questions, don't be afraid to ask. Good luck!
      - [ ] 400
      - [x] 404
      - [x] 500
-   - [ ] Website Functionality
+   - [x] Website Functionality
      - [ ] Website Startup Test
-     - [ ] Events List Component
+     - [x] Events List Component
      - [ ] Test Events List
-     - [ ] Event Create Form Component
+     - [x] Event Create Form Component
      - [ ] Test Events Create Form
  - [ ] Overview & Docs update
