@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node src/index.js",
-    "dev": "node src/index.js",
+    "dev": "cross-env NODE_ENV=development nodemon --inspect src/index.js",
     "test": "jest -i --colors --verbose"
   },
   "repository": {
