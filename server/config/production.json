@@ -2,7 +2,7 @@
     "db": {
         "host": "localhost",
         "port": 5432,
-        "db": "prod",
+        "db": "postgres",
         "user": "user",
         "password": "pass"
     }
