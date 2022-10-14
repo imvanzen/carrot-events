@@ -5,11 +5,11 @@ services:
   event-app-web:
     container_name: event-app-web-test
     environment:
-      NODE_ENV: testing
+      NODE_ENV: test
     command: npm run test
 
   event-app-server:
     container_name: event-app-server-test
     environment:
-      NODE_ENV: testing
+      NODE_ENV: test
     command: npm run test
