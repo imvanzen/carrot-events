@@ -24,6 +24,21 @@ What's essential for us?:
  - [ ] Code readability and extensibility
 
 If you have any questions, don't be afraid to ask. Good luck!
+
+## How to run
+ - Clone repository
+   ```
+   $ git clone git@github.com:imvanzen/carrot-events.git 
+   ```
+ - You need docker and docker-compose
+ - Run script
+   ```
+   $ npm run docker:dev
+   ```
+ - Keep your fingers crossed with me that the containers will build and start up.
+ - Web is running on port 3000 and backend on port 5000
+   
+
 ## Milestones
  - [x] Setup Containers
    - [x] Database 
