@@ -1,9 +1,5 @@
-import axios from "axios"
+import events from './events'
 
-const API_URL = process.env.REACT_APP_API_URL
-
-console.log(API_URL)
-
-export default axios.create({
-    baseURL: `http://${API_URL}`
-})
+export default {
+    events
+}
