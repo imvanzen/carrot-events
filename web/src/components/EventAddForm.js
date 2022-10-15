@@ -1,10 +1,9 @@
-import React, { useState } from 'react'
-import SemanticDatepicker from 'react-semantic-ui-datepickers';
-import 'react-semantic-ui-datepickers/dist/react-semantic-ui-datepickers.css';
+import React, { useEffect, useState } from 'react'
+import { Button, Form, Icon, Input } from 'semantic-ui-react'
+import { DateTimeInput } from 'semantic-ui-calendar-react'
 
 const EventAddForm = ({ onSubmit }) => {
     const [loading, setLoading] = useState(false)
-    const [error, setError] = useState(null);
     const [form, setForm] = useState({
         first_name: "",
         last_name: "",
@@ -22,12 +21,10 @@ const EventAddForm = ({ onSubmit }) => {
     //     return val.match(schema[name])
     // }
 
-    const onDateTimeChange = (e, data) => {
-        console.log(e.target.value)
-        console.log(data)
+    const onDateTimeChange = (event, { name, value }) => {
         setForm({
             ...form,
-            event_date: data.value
+            [name]: value
         })
     }
 
@@ -39,63 +36,87 @@ const EventAddForm = ({ onSubmit }) => {
     }
 
     const onFormSubmit = async e => {
-        e.preventDefault();
+        e.preventDefault()
         setLoading(true)
         await onSubmit(form)
+        setLoading(false)
     }
 
-    const isLoading = () => loading ? 'loading' : ''
-    const message = () => (
-        (error && (
-            <div className="ui error message">
-                <div className="header">Form Error</div>
-                <p>Something went wrong</p>
-                <pre><code>{JSON.stringify(error)}</code></pre>
-            </div>
-        )) || null
-    )
+    const errors = {
+        first_name: {
+            content: 'Please enter a valid email address',
+            pointing: 'below',
+        },
+        last_name: {
+            content: 'Please enter a valid email address',
+            pointing: 'below',
+        },
+        email: {
+            content: 'Please enter a valid email address',
+            pointing: 'below',
+        },
+        event_date: {
+            content: 'Please enter a valid email address',
+            pointing: 'below',
+        },
+    }
 
     return (
-        <div className="event-add-form ui segment">
-            <form className={`ui form ${isLoading()}`} onSubmit={onFormSubmit}>
-                {message()}
-                <div className="field">
-                    <label>First Name</label>
-                    <input
-                        type="text"
-                        name="first_name"
-                        placeholder="First Name"
-                        onChange={onInputChange('first_name')}
-                        value={form.first_name} />
-                </div>
-                <div className="field">
-                    <label>Last Name</label>
-                    <input
-                        type="text"
-                        name="last_name"
-                        placeholder="Last Name"
-                        onChange={onInputChange('last_name')}
-                        value={form.last_name} />
-                </div>
-                <div className="field">
-                    <label>Email</label>
-                    <input
-                        type="email"
-                        name="last-name"
-                        placeholder="Email"
-                        onChange={onInputChange('email')}
-                        value={form.email} />
-                </div>
-
-                <div className="field">
-                    <SemanticDatepicker onChange={onDateTimeChange} />
-                </div>
-
-                <button
-                    className="ui button"
-                    type="submit">Submit</button>
-            </form>
-        </div>
+        <Form onSubmit={onFormSubmit} loading={loading}>
+            <Form.Group widths='equal'>
+                <Form.Field
+                    id='form-input-control-first-name'
+                    control={Input}
+                    onChange={onInputChange('first_name')}
+                    value={form.first_name}
+                    label='First name'
+                    placeholder='First name'
+                    error={errors.email}
+                />
+                <Form.Field
+                    id='form-input-control-last-name'
+                    control={Input}
+                    onChange={onInputChange('last_name')}
+                    value={form.last_name}
+                    label='Last name'
+                    placeholder='Last name'
+                    error={errors.email}
+                />
+            </Form.Group>
+            <Form.Field
+                id='form-input-control-error-email'
+                control={Input}
+                onChange={onInputChange('email')}
+                value={form.email}
+                label='Email'
+                placeholder='joe@schmoe.com'
+                error={errors.email}
+            />
+            <Form.Field
+                id='form-input-control-event-date'
+                control={DateTimeInput}
+                label='Date & Time'
+                name="event_date"
+                placeholder="Date Time"
+                onChange={onDateTimeChange}
+                value={form.event_date}
+                iconPosition="left"
+                popupPosition="bottom left"
+                startMode='month'
+                clearable
+                closable
+                error={errors.email}
+            />
+            <Form.Field
+                id='form-button-control-public'
+                control={Button}
+                content={<><Icon name='add to calendar' /> Add Event</>}
+                icon
+                labelPosition='right'
+                primary
+                type='submit'
+            />
+        </Form>
     )
 }
 

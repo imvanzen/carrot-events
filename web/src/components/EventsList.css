@@ -1,0 +1,8 @@
+.events-list {
+    width: 100%;
+}
+
+.events-list thead {
+    font-weight: bold;
+    white-space: nowrap;
+}
