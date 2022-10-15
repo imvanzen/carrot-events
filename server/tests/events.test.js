@@ -1,7 +1,10 @@
 const request = require('supertest')
 const httpStatus = require('http-status')
 const { faker } = require('@faker-js/faker')
+const config = require('config')
 const app = require('../src/app')
+
+const port = config.get('app.port')
 const { eventOne, eventTwo, generateEvent, insertEvents } = require('./fixtures')
 
 describe('Event routes', () => {
@@ -10,7 +13,7 @@ describe('Event routes', () => {
     beforeEach(done => {
         newEvent = generateEvent();
 
-        server = app.listen(5001, err => {
+        server = app.listen(port, err => {
             if (err) return done(err)
             agent = request.agent(server)
             done()
