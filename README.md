@@ -66,3 +66,7 @@ If you have any questions, don't be afraid to ask. Good luck!
      - [x] Event Create Form Component
      - [ ] Test Events Create Form
  - [ ] Overview & Docs update
+
+## Issues
+ - [ ] Heavy containers
+ - [ ] Problem with timezones during insert and fetch 
