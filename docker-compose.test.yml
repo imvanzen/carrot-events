@@ -13,3 +13,13 @@ services:
     environment:
       NODE_ENV: test
     command: npm run test
+
+  postgres:
+    container_name: postgres-test
+    environment:
+      POSTGRES_USER: test
+      POSTGRES_PASSWORD: test
+      POSTGRES_DB: test
+    volumes:
+      - ./test-postgres-data:/var/lib/postgresql/data
+      - ./db/bootstrap.sql:/docker-entrypoint-initdb.d/bootstrap.sql
