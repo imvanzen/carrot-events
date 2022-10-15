@@ -14,10 +14,10 @@ const EventItem = ({
 
     return (
         <div className="event-item item">
-            <i class="large calendar middle aligned icon"></i>
-            <div class="content">
-                <a href={`mailto:${email}`} class="header">{fullName}</a>
-                <div class="description">{event_date}</div>
+            <i className="large calendar middle aligned icon"></i>
+            <div className="content">
+                <a href={`mailto:${email}`} className="header">{fullName}</a>
+                <div className="description">{event_date}</div>
             </div>
         </div>
     )

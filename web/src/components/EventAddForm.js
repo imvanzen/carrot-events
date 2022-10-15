@@ -3,35 +3,27 @@ import SemanticDatepicker from 'react-semantic-ui-datepickers';
 import 'react-semantic-ui-datepickers/dist/react-semantic-ui-datepickers.css';
 
 const EventAddForm = ({ onSubmit }) => {
+    const [loading, setLoading] = useState(false)
+    const [error, setError] = useState(null);
     const [form, setForm] = useState({
         first_name: "",
         last_name: "",
         email: "",
-        event_date: "",
-
-        errors: {
-            first_name: "",
-            last_name: "",
-            email: "",
-            event_date: "",
-        }
+        event_date: ""
     })
 
-    const isFieldValid = (name, val) => {
-        const schema = {
-            first_name: /^([A-Za-b]+)$/i,
-            last_name: /^([A-Za-b]+)$/i,
-            email: /^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i,
-            event_date: /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2}(?:\.\d*)?)((-(\d{2}):(\d{2})|Z)?)$/gmi
-        }
+    // const isFieldValid = (name, val) => {
+    //     const schema = {
+    //         first_name: /^([A-Za-b]+)$/i,
+    //         last_name: /^([A-Za-b]+)$/i,
+    //         email: /^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i,
+    //         event_date: /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2}(?:\.\d*)?)((-(\d{2}):(\d{2})|Z)?)$/gmi
+    //     }
+    //     return val.match(schema[name])
+    // }
 
-        console.log("isFieldValid", name, val, schema[name])
-
-        return val.match(schema[name])
-    }
-
-    const onDateTimeChange = (event, data) => {
-        console.log(event.target.value)
+    const onDateTimeChange = (e, data) => {
+        console.log(e.target.value)
         console.log(data)
         setForm({
             ...form,
@@ -39,30 +31,34 @@ const EventAddForm = ({ onSubmit }) => {
         })
     }
 
-    const onInputChange = (name) => e => {
+    const onInputChange = (name) => (e, data) => {
         setForm({
             ...form,
-            [name]: e.target.value,
-            errors: {
-                ...form.errors,
-                [name]: isFieldValid(name, e.target.value)
-            }
+            [name]: e.target.value
         })
     }
 
-    const onFormSubmit = e => {
+    const onFormSubmit = async e => {
         e.preventDefault();
-        onSubmit(form);
+        setLoading(true)
+        await onSubmit(form)
     }
 
-    const isFormValid = () => {
-        console.log("isFormValid", form.errors, Object.values(form.errors).some(val => !val));
-        return Object.values(form.errors).some(val => !val)
-    }
+    const isLoading = () => loading ? 'loading' : ''
+    const message = () => (
+        (error && (
+            <div className="ui error message">
+                <div className="header">Form Error</div>
+                <p>Something went wrong</p>
+                <pre><code>{JSON.stringify(error)}</code></pre>
+            </div>
+        )) || null
+    )
 
     return (
         <div className="event-add-form ui segment">
-            <form className="ui form" onSubmit={onFormSubmit}>
+            <form className={`ui form ${isLoading()}`} onSubmit={onFormSubmit}>
+                {message()}
                 <div className="field">
                     <label>First Name</label>
                     <input
@@ -97,8 +93,7 @@ const EventAddForm = ({ onSubmit }) => {
 
                 <button
                     className="ui button"
-                    type="submit"
-                    disabled={isFormValid()}>Submit</button>
+                    type="submit">Submit</button>
             </form>
         </div>
     )

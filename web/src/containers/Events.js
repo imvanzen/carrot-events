@@ -10,13 +10,15 @@ const Events = () => {
     useEffect(() => {
         const fetchData = async () => {
             const result = await eventsApi.list()
-            setEvents(result)
+            console.log(result.data)
+            setEvents(result.data)
         }
         fetchData()
     }, [])
 
-    const onSubmit = (form) => {
-        console.log(form)
+    const onSubmit = async (form) => {
+        const result = await eventsApi.create(form)
+        setEvents([result.data, ...events])
     }
 
     return (
