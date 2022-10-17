@@ -69,7 +69,7 @@ If you have any questions, don't be afraid to ask. Good luck!
    ```
  - Run script in order to setup database
    ```
-   $ cross-env REACT_APP_API_URL=http://localhost:5000 npm run start
+   $ npm run start
    ```
  - Ensure you are in the web directory
    ```
