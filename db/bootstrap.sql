@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS carrot_events.events (
 	last_name varchar(255) NOT NULL,
 	email varchar(255) NOT NULL,
 	event_date timestamp NOT NULL,
-	created_at timestamp NOT NULL DEFAULT NOW(),
+	created_at timestamp NOT NULL DEFAULT NOW()::timestamp,
 	updated_at timestamp NULL,
 	deleted_at timestamp NULL,
 

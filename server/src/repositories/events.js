@@ -69,7 +69,7 @@ const update = async (id, event) => {
                 last_name = $3,
                 email = $4,
                 event_date = $5, 
-                updated_at = NOW()
+                updated_at = NOW()::timestamp
             WHERE id = $1::uuid AND deleted_at IS NULL
             RETURNING *`,
             [id, first_name, last_name, email, event_date]
@@ -86,7 +86,7 @@ const remove = async (id) => {
     try {
         const result = await db.query(
             `UPDATE carrot_events.events SET
-                deleted_at = NOW()
+                deleted_at = NOW()::timestamp
             WHERE 
                 id = $1::uuid AND deleted_at IS NULL
             RETURNING *`,
