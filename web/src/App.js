@@ -8,6 +8,7 @@ import { Container, Grid, Header, Segment } from 'semantic-ui-react'
 import Events from './containers/Events'
 import EventCreate from './containers/EventCreate'
 import EventEdit from './containers/EventEdit'
+import NoMatch from './containers/NoMatch'
 
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const App = () => {
                 <Route exact path="/" element={<Events />} />
                 <Route path="/create" element={<EventCreate />} />
                 <Route path="/edit/:eventId" element={<EventEdit />} />
+                <Route path="*" element={<NoMatch />} />
               </Routes>
             </Grid.Row>
           </Grid>
