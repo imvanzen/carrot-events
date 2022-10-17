@@ -16,7 +16,10 @@ const bodySchema = (
         first_name: Joi.string().required(),
         last_name: Joi.string().required(),
         email: Joi.string().email().required(),
-        event_date: Joi.string().isoDate().required()
+        event_date: Joi.string().isoDate().required(),
+        created_at: Joi.string().allow(null).optional().isoDate(),
+        updated_at: Joi.string().allow(null).optional().isoDate(),
+        deleted_at: Joi.string().allow(null).optional().isoDate()
     })
 )
 
