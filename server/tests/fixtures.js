@@ -1,4 +1,5 @@
 const { faker } = require('@faker-js/faker');
+const { DateTime } = require('luxon')
 
 const generateEvent = () => {
     const first_name = faker.name.firstName()
@@ -8,7 +9,7 @@ const generateEvent = () => {
         first_name,
         last_name,
         email: faker.internet.email(first_name, last_name).toLowerCase(),
-        event_date: faker.date.soon()
+        event_date: faker.date.soon().toISOString()
     }
 }
 
@@ -20,9 +21,19 @@ const generateEventWithId = () => {
     }
 }
 
-const eventOne = generateEvent();
-const eventTwo = generateEvent();
-const eventThree = generateEvent();
+const generateEventWithIdAndCreatedAt = (days = 0) => {
+    const newEventWithId = generateEventWithId()
+    return {
+        ...newEventWithId,
+        created_at: DateTime.now().toUTC().minus({ days }).toISO(),
+        updated_at: null,
+        deleted_at: null
+    }
+}
+
+const eventOne = generateEventWithIdAndCreatedAt(3);
+const eventTwo = generateEventWithIdAndCreatedAt(2);
+const eventThree = generateEventWithIdAndCreatedAt(1);
 
 module.exports = {
     eventOne,
