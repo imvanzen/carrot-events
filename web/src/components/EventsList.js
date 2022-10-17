@@ -4,14 +4,26 @@ import { Button, Icon, Table } from 'semantic-ui-react'
 import EventItem from './EventItem'
 import './EventsList.css'
 
-const EventsList = ({ events, handleDelete }) => {
+const NoEvents = () => (
+    <Table.Row>
+        <Table.Cell colSpan={5}>No events</Table.Cell>
+    </Table.Row>
+)
 
-    const eventItemsMap = events.map((event) => (
-        <EventItem
-            key={event.id}
-            event={event}
-            handleDelete={handleDelete} />
-    ));
+const EventsList = ({ events, handleDelete }) => {
+    const getEventsList = () => {
+        if (!events.length) {
+            return <NoEvents />
+        }
+
+        return events.map((event) => (
+            <EventItem
+                key={event.id}
+                event={event}
+                handleDelete={handleDelete} />
+        ))
+    }
+
     return (
         <Table compact celled color='orange'>
             <Table.Header>
@@ -25,7 +37,7 @@ const EventsList = ({ events, handleDelete }) => {
             </Table.Header>
 
             <Table.Body>
-                {eventItemsMap}
+                {getEventsList()}
             </Table.Body>
 
             <Table.Footer fullWidth>
