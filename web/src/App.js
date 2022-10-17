@@ -5,10 +5,12 @@ import {
   Route
 } from 'react-router-dom'
 import { Container, Grid, Header, Segment } from 'semantic-ui-react'
-import Events from './containers/Events'
-import EventCreate from './containers/EventCreate'
-import EventEdit from './containers/EventEdit'
-import NoMatch from './containers/NoMatch'
+import {
+  Events,
+  EventCreate,
+  EventEdit,
+  NoMatch
+} from './containers'
 
 const App = () => {
   return (
