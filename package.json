@@ -22,5 +22,8 @@
     "bugs": {
         "url": "https://github.com/imvanzen/carrot-events/issues"
     },
-    "homepage": "https://github.com/imvanzen/carrot-events#readme"
+    "homepage": "https://github.com/imvanzen/carrot-events#readme",
+    "devDependencies": {
+        "cypress-plugin-tab": "^1.0.5"
+    }
 }

@@ -1,0 +1,38 @@
+[
+  {
+    "first_name": "Wendy",
+    "last_name": "Rosenbaum",
+    "email": "wendy_rosenbaum@hotmail.com",
+    "event_date": "2022-10-17T18:39:56.950Z"
+  },
+  {
+    "first_name": "Lois",
+    "last_name": "Daniel",
+    "email": "lois_daniel@gmail.com",
+    "event_date": "2022-10-17T12:47:46.090Z"
+  },
+  {
+    "first_name": "Jerel",
+    "last_name": "Schulist",
+    "email": "jerel_schulist93@hotmail.com",
+    "event_date": "2022-10-17T12:11:27.771Z"
+  },
+  {
+    "first_name": "Estelle",
+    "last_name": "Ryan",
+    "email": "estelle.ryan92@yahoo.com",
+    "event_date": "2022-10-18T09:00:50.337Z"
+  },
+  {
+    "first_name": "Janet",
+    "last_name": "Vandervort",
+    "email": "janet.vandervort69@hotmail.com",
+    "event_date": "2022-10-17T18:21:53.494Z"
+  },
+  {
+    "first_name": "Jeromy",
+    "last_name": "Klein",
+    "email": "jeromy61@yahoo.com",
+    "event_date": "2022-10-18T09:21:29.086Z"
+  }
+]

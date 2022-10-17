@@ -35,6 +35,20 @@ const eventOne = generateEventWithIdAndCreatedAt(3);
 const eventTwo = generateEventWithIdAndCreatedAt(2);
 const eventThree = generateEventWithIdAndCreatedAt(1);
 
+const testEvents = () => {
+    return [
+        generateEvent(),
+        generateEvent(),
+        generateEvent(),
+        generateEvent(),
+        generateEvent(),
+        generateEvent(),
+        generateEvent()
+    ]
+}
+
+console.log(JSON.stringify(testEvents(), " ", 2));
+
 module.exports = {
     eventOne,
     eventTwo,
