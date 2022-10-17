@@ -3,7 +3,16 @@ const db = require('../services/pg')
 
 const findAll = async () => {
     try {
-        const result = await db.query('SELECT * FROM carrot_events.events WHERE deleted_at IS NULL ORDER BY created_at ASC', [])
+        const result = await db.query(
+            `SELECT 
+                *
+            FROM 
+                carrot_events.events 
+            WHERE 
+                deleted_at IS NULL 
+            ORDER BY 
+                created_at ASC`,
+            [])
         console.log('Query response', result.rows)
         return result.rows
     } catch (err) {
@@ -16,7 +25,11 @@ const create = async (event) => {
     try {
         const { first_name, last_name, email, event_date } = event;
         const result = await db.query(
-            `INSERT INTO carrot_events.events (id, first_name, last_name, email, event_date) VALUES ($1, $2, $3, $4, $5) RETURNING *`,
+            `INSERT INTO carrot_events.events 
+                (id, first_name, last_name, email, event_date) 
+            VALUES 
+                ($1, $2, $3, $4, $5) 
+            RETURNING *`,
             [uuid4(), first_name, last_name, email, event_date]
         )
         console.log('Query response', event, result.rows)
@@ -30,7 +43,13 @@ const create = async (event) => {
 const findOne = async (id) => {
     try {
         const result = await db.query(
-            'SELECT * FROM carrot_events.events WHERE id = $1::uuid AND deleted_at IS NULL',
+            `SELECT 
+                *
+            FROM 
+                carrot_events.events 
+            WHERE 
+                id = $1::uuid AND
+                deleted_at IS NULL`,
             [id]
         )
         console.log('Query response', id, result.rows)
