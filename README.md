@@ -79,7 +79,52 @@ If you have any questions, don't be afraid to ask. Good luck!
    ```
    $ npm run dev
    ```
+
    
+### E2E Tests
+ - You will need [docker](https://docs.docker.com/engine/install/) and [docker-compose](https://docs.docker.com/compose/install/)
+ - Clone the repository
+   ```
+   $ git clone git@github.com:imvanzen/carrot-events.git 
+   ```
+ - Ensure you are in the main directory
+   ```
+   $ /path-in-your-fs/carrot-events/
+   ```
+ - Run script in order to setup database
+   ```
+   $ npm run docker:test
+   ```
+ - Keep your fingers crossed with me that the containers will build and start up.
+ - Website is running on port 3000 and backend on port 5000
+ - Ensure you are in the web directory
+   ```
+   $ /path-in-your-fs/carrot-events/web/
+   ```
+ - Run script in order to setup database
+   ```
+   $ npm run cypress:open
+   ```
+ - Enjoy interactive E2E tests
+
+### Exclusive API tests
+ - Ensure you are in the main directory
+   ```
+   $ /path-in-your-fs/carrot-events/
+   ```
+ - Ensure you have testing postgres DB runnning. Othrewise run this command
+   ```
+   $ npm run docker:test
+   ```
+ - Ensure you are in the server directory
+   ```
+   $ /path-in-your-fs/carrot-events/server/
+   ```
+ - Run script in order to setup database
+   ```
+   $ npm run test
+   ```
+ - Enjoy API tests
 
 ## Milestones
  - [x] Setup Containers
@@ -106,15 +151,15 @@ If you have any questions, don't be afraid to ask. Good luck!
      - [x] 404
      - [x] 500
    - [x] Website Functionality
-     - [ ] Website Startup Test
+     - [x] Website Startup Test
      - [x] Events List Component
-     - [ ] Test Events List
+     - [x] Test Events List
      - [x] Event Create Form Component
-     - [ ] Test Events Create Form
+     - [x] Test Events Create Form
      - [x] Event Edit Form Component
-     - [ ] Test Events Create Form
+     - [ ] Test Events Edit Form
      - [x] Event Delete Component
-     - [ ] Test Events Create Form
+     - [ ] Test Events Delete Form
  - [ ] Overview & Docs update
 
 ## Issues & Improvements & Tech dept
@@ -123,3 +168,5 @@ If you have any questions, don't be afraid to ask. Good luck!
  - [ ] Event list ordering
  - [ ] Mess in NPM scripts in package json
  - [ ] Add context to the delete confirmation modal
+ - [ ] Lazy E2E tests
+ - [ ] Testing datepicker
