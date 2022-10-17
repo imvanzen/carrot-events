@@ -16,6 +16,7 @@ const EventsList = ({ events }) => {
                     <Table.HeaderCell>Last name</Table.HeaderCell>
                     <Table.HeaderCell>E-mail</Table.HeaderCell>
                     <Table.HeaderCell>Event date</Table.HeaderCell>
+                    <Table.HeaderCell />
                 </Table.Row>
             </Table.Header>
 
@@ -25,7 +26,7 @@ const EventsList = ({ events }) => {
 
             <Table.Footer fullWidth>
                 <Table.Row>
-                    <Table.HeaderCell colSpan='4'>
+                    <Table.HeaderCell colSpan='5'>
                         <Link to='/create'>
                             <Button
                                 floated='right'
