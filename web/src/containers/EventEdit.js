@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import { Grid } from 'semantic-ui-react'
 import EventForm from '../components/EventForm'
 
 import eventsApi from '../api/events'
 
 const EventEdit = () => {
-    const [event, setEvent] = useState(null);
-    let { eventId } = useParams()
+    const [event, setEvent] = useState(null)
+    const { eventId } = useParams()
+    const navigate = useNavigate()
 
     useEffect(() => {
         const fetchData = async () => {
@@ -31,8 +32,9 @@ const EventEdit = () => {
             if (!result) {
                 console.log("Update failed")
             }
+            navigate('/')
         } catch (err) {
-            console.log(err.response.data.message)
+            console.log(err)
         }
     }
 
