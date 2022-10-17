@@ -50,11 +50,15 @@ If you have any questions, don't be afraid to ask. Good luck!
  - [ ] Server Functionality
    - [x] Events Resource API
      - [x] Create Event
-     - [ ] Test Create
+     - [x] Test Create
      - [x] Validate Event
-     - [ ] Test Validate
+     - [x] Test Validate
      - [x] List Events
-     - [ ] Test List
+     - [x] Test List
+     - [ ] Update Event
+     - [ ] Test Update
+     - [ ] Delete Event
+     - [ ] Test Delete
    - [ ] API Error Handling - Beautyful
      - [ ] 400
      - [x] 404
@@ -70,3 +74,4 @@ If you have any questions, don't be afraid to ask. Good luck!
 ## Issues
  - [ ] Heavy containers
  - [ ] Problem with timezones during insert and fetch 
+ - [ ] Event list ordering
