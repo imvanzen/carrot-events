@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { Button, Icon, Table } from 'semantic-ui-react'
 import EventItem from './EventItem'
 import './EventsList.css'
@@ -11,6 +11,7 @@ const NoEvents = () => (
 )
 
 const EventsList = ({ events, handleDelete }) => {
+    const navigate = useNavigate()
     const getEventsList = () => {
         if (!events.length) {
             return <NoEvents />
@@ -43,15 +44,14 @@ const EventsList = ({ events, handleDelete }) => {
             <Table.Footer fullWidth>
                 <Table.Row>
                     <Table.HeaderCell colSpan='5'>
-                        <Link to='/create'>
-                            <Button
-                                floated='right'
-                                icon
-                                labelPosition='right'
-                                primary>
-                                <Icon name='add to calendar' /> Add event
-                            </Button>
-                        </Link>
+                        <Button
+                            floated='right'
+                            icon
+                            labelPosition='right'
+                            primary
+                            onClick={() => navigate('/create')}>
+                            <Icon name='add to calendar' /> Add event
+                        </Button>
                     </Table.HeaderCell>
                 </Table.Row>
             </Table.Footer>

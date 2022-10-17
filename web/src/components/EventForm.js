@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { Button, Form, Icon, Input } from 'semantic-ui-react'
 import { DateTimeInput } from 'semantic-ui-calendar-react'
 
 const EventForm = ({ onSubmit, event }) => {
+    const navigate = useNavigate()
     const [loading, setLoading] = useState(false)
     const [form, setForm] = useState({
         first_name: "",
@@ -116,14 +117,13 @@ const EventForm = ({ onSubmit, event }) => {
                 error={hasErrors('event_date')}
             />
             <Button.Group floated='right'>
-                <Link to='/'>
-                    <Button
-                        id='form-button-control-cancel'
-                        icon
-                        labelPosition='right'>
-                        <Icon name='remove' /> Cancel
-                    </Button>
-                </Link>
+                <Button
+                    id='form-button-control-cancel'
+                    icon
+                    labelPosition='right'
+                    onClick={() => navigate('/')}>
+                    <Icon name='remove' /> Cancel
+                </Button>
 
                 <Button
                     id='form-button-control-public'
