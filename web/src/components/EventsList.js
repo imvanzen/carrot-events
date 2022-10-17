@@ -45,6 +45,7 @@ const EventsList = ({ events, handleDelete }) => {
                 <Table.Row>
                     <Table.HeaderCell colSpan='5'>
                         <Button
+                            id='list-button-add-new'
                             floated='right'
                             icon
                             labelPosition='right'
