@@ -105,6 +105,7 @@ const EventForm = ({ onSubmit, event }) => {
                 label='Date & Time'
                 name="event_date"
                 placeholder="Date Time"
+                dateTimeFormat="YYYY-MM-DD[T]HH:mm:ss.SSS[Z]"
                 onChange={onDateTimeChange}
                 value={form.event_date}
                 iconPosition="left"
