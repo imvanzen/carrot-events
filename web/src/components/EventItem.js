@@ -41,7 +41,7 @@ const EventItem = ({ event, handleDelete }) => {
 
                 <Confirm
                     open={open}
-                    header="Event Delete"
+                    header="Delete event"
                     content="Do you really want to delete this event?"
                     onCancel={() => setOpen(false)}
                     onConfirm={() => handleConfirm(id)}
