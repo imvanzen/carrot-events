@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { Button, Form, Icon, Input } from 'semantic-ui-react'
 import { DateTimeInput } from 'semantic-ui-calendar-react'
 
@@ -108,23 +109,23 @@ const EventForm = ({ onSubmit, event = {
                 error={errors.email}
             />
             <Button.Group floated='right'>
-                <Form.Field
-                    id='form-button-control-public'
-                    control={Button}
-                    content={<><Icon name='remove' /> Cancel</>}
-                    icon
-                    labelPosition='right'
-                />
+                <Link to='/'>
+                    <Button
+                        id='form-button-control-cancel'
+                        icon
+                        labelPosition='right'>
+                        <Icon name='remove' /> Cancel
+                    </Button>
+                </Link>
 
-                <Form.Field
+                <Button
                     id='form-button-control-public'
-                    control={Button}
-                    content={<><Icon name='add to calendar' /> Add Event</>}
                     icon
                     labelPosition='right'
                     primary
-                    type='submit'
-                />
+                    type='submit'>
+                    <Icon name='add to calendar' /> Add Event
+                </Button>
             </Button.Group>
         </Form>
     )

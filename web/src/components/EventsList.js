@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { Button, Icon, Table } from 'semantic-ui-react'
 import EventItem from './EventItem';
 import './EventsList.css';
@@ -25,13 +26,15 @@ const EventsList = ({ events }) => {
             <Table.Footer fullWidth>
                 <Table.Row>
                     <Table.HeaderCell colSpan='4'>
-                        <Button
-                            floated='right'
-                            icon
-                            labelPosition='right'
-                            primary>
-                            <Icon name='add to calendar' /> Add event
-                        </Button>
+                        <Link to='/create'>
+                            <Button
+                                floated='right'
+                                icon
+                                labelPosition='right'
+                                primary>
+                                <Icon name='add to calendar' /> Add event
+                            </Button>
+                        </Link>
                     </Table.HeaderCell>
                 </Table.Row>
             </Table.Footer>
