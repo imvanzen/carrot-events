@@ -47,7 +47,7 @@ If you have any questions, don't be afraid to ask. Good luck!
  - [x] Setup Simple Test for startup
    - [x] Server
    - [x] Website
- - [ ] Server Functionality
+ - [x] Server Functionality
    - [x] Events Resource API
      - [x] Create Event
      - [x] Test Create
@@ -55,12 +55,12 @@ If you have any questions, don't be afraid to ask. Good luck!
      - [x] Test Validate
      - [x] List Events
      - [x] Test List
-     - [ ] Update Event
+     - [x] Update Event
      - [ ] Test Update
-     - [ ] Delete Event
+     - [x] Delete Event
      - [ ] Test Delete
-   - [ ] API Error Handling - Beautyful
-     - [ ] 400
+   - [X] API Error Handling - Beautyful
+     - [X] 400
      - [x] 404
      - [x] 500
    - [x] Website Functionality
@@ -69,9 +69,14 @@ If you have any questions, don't be afraid to ask. Good luck!
      - [ ] Test Events List
      - [x] Event Create Form Component
      - [ ] Test Events Create Form
+     - [x] Event Edit Form Component
+     - [ ] Test Events Create Form
+     - [x] Event Delete Component
+     - [ ] Test Events Create Form
  - [ ] Overview & Docs update
 
 ## Issues
  - [ ] Heavy containers
  - [ ] Problem with timezones during insert and fetch 
  - [ ] Event list ordering
+ - [ ] Mess in NPM scripts in package json
