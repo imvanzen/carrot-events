@@ -26,17 +26,59 @@ What's essential for us?:
 If you have any questions, don't be afraid to ask. Good luck!
 
 ## How to run
- - Clone repository
+### Development with containers
+ - You will need [docker](https://docs.docker.com/engine/install/) and [docker-compose](https://docs.docker.com/compose/install/)
+ - Clone the repository
    ```
    $ git clone git@github.com:imvanzen/carrot-events.git 
    ```
- - You need docker and docker-compose
+ - Ensure you are in the main directory 
+   ```
+   $ /path-in-your-fs/carrot-events
+   ```
  - Run script
    ```
    $ npm run docker:dev
    ```
  - Keep your fingers crossed with me that the containers will build and start up.
- - Web is running on port 3000 and backend on port 5000
+ - Website is running on port 3000 and backend on port 5000
+ - Rebuild containers after any change `(service_name: web | server)`
+   ```
+   $ npm run docker:dev --build <service_name>
+   ```
+
+### Development with hotrealoading
+- You will need [docker](https://docs.docker.com/engine/install/) and [docker-compose](https://docs.docker.com/compose/install/)
+ - Clone the repository
+   ```
+   $ git clone git@github.com:imvanzen/carrot-events.git 
+   ```
+ - Ensure you are in the main directory
+   ```
+   $ /path-in-your-fs/carrot-events/
+   ```
+ - Run script in order to setup database
+   ```
+   $ npm run docker:dev postgres
+   ```
+ - Keep your fingers crossed with me that the containers will build and start up.
+ - Postgres is running
+ - Ensure you are in the web directory
+   ```
+   $ /path-in-your-fs/carrot-events/web/
+   ```
+ - Run script in order to setup database
+   ```
+   $ cross-env REACT_APP_API_URL=http://localhost:5000 npm run start
+   ```
+ - Ensure you are in the web directory
+   ```
+   $ /path-in-your-fs/carrot-events/server/
+   ```
+ - Run script in order to setup database
+   ```
+   $ npm run dev
+   ```
    
 
 ## Milestones
