@@ -17,7 +17,12 @@ const Events = () => {
 
     const handleDelete = async (id) => {
         try {
-            return await eventsApi.remove(id)
+            const result = await eventsApi.remove(id)
+            if (result.status !== 204) {
+                console.log("Error occured")
+                return
+            }
+            setEvents(events.filter(event => event.id !== id))
         } catch (err) {
             console.log(err)
         }
