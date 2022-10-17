@@ -131,7 +131,7 @@ const EventForm = ({ onSubmit, event }) => {
                     labelPosition='right'
                     primary
                     type='submit'>
-                    <Icon name='add to calendar' /> Add Event
+                    <Icon name='add to calendar' /> Submit
                 </Button>
             </Button.Group>
         </Form>
