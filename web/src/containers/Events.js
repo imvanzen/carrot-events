@@ -29,9 +29,7 @@ const Events = () => {
     }
 
     return (
-        <Grid.Column>
-            <EventsList events={events} handleDelete={handleDelete} />
-        </Grid.Column>
+        <EventsList className='events' events={events} handleDelete={handleDelete} />
     )
 }
 

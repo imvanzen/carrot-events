@@ -20,9 +20,7 @@ const EventCreate = () => {
     }
 
     return (
-        <Grid.Column>
-            <EventForm onSubmit={onSubmit} />
-        </Grid.Column>
+        <EventForm className='event-create' onSubmit={onSubmit} />
     )
 }
 

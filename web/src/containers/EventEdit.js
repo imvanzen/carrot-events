@@ -39,9 +39,7 @@ const EventEdit = () => {
     }
 
     return (
-        <Grid.Column>
-            <EventForm event={event} onSubmit={onSubmit} />
-        </Grid.Column>
+        <EventForm className='event-edit' event={event} onSubmit={onSubmit} />
     )
 }
 

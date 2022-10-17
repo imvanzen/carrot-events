@@ -15,7 +15,7 @@ import {
 const App = () => {
   return (
     <Router>
-      <Container text className='app' style={{ marginTop: '40px' }}>
+      <Container className='app' text style={{ marginTop: '40px' }}>
         <Segment>
           <Grid columns='equal'>
             <Grid.Row>
@@ -24,12 +24,14 @@ const App = () => {
               </Grid.Column>
             </Grid.Row>
             <Grid.Row>
-              <Routes>
-                <Route exact path="/" element={<Events />} />
-                <Route path="/create" element={<EventCreate />} />
-                <Route path="/edit/:eventId" element={<EventEdit />} />
-                <Route path="*" element={<NoMatch />} />
-              </Routes>
+              <Grid.Column>
+                <Routes>
+                  <Route exact path="/" element={<Events />} />
+                  <Route path="/create" element={<EventCreate />} />
+                  <Route path="/edit/:eventId" element={<EventEdit />} />
+                  <Route path="*" element={<NoMatch />} />
+                </Routes>
+              </Grid.Column>
             </Grid.Row>
           </Grid>
         </Segment>

@@ -20,7 +20,7 @@ const EventItem = ({ event, handleDelete }) => {
     const formatEventDate = (date) => DateTime.fromISO(date).setLocale('pl-PL').toFormat('FF')
 
     return (
-        <Table.Row key={id}>
+        <Table.Row className='event-item' key={id}>
             <Table.Cell>{first_name}</Table.Cell>
             <Table.Cell>{last_name}</Table.Cell>
             <Table.Cell>{email}</Table.Cell>

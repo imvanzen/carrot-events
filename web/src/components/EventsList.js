@@ -25,7 +25,7 @@ const EventsList = ({ events, handleDelete }) => {
     }
 
     return (
-        <Table compact celled color='orange'>
+        <Table className='events-list' compact celled color='orange'>
             <Table.Header>
                 <Table.Row>
                     <Table.HeaderCell>First name</Table.HeaderCell>

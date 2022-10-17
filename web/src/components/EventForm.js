@@ -69,7 +69,7 @@ const EventForm = ({ onSubmit, event }) => {
     }
 
     return (
-        <Form onSubmit={onFormSubmit} loading={loading}>
+        <Form className='event-form' onSubmit={onFormSubmit} loading={loading}>
             <Form.Group widths='equal'>
                 <Form.Field
                     id='form-input-control-first-name'
