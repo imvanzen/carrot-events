@@ -12,6 +12,7 @@ const paramsSchema = (
 
 const bodySchema = (
     Joi.object().keys({
+        id: Joi.string().guid(),
         first_name: Joi.string().required(),
         last_name: Joi.string().required(),
         email: Joi.string().email().required(),
