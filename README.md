@@ -117,8 +117,9 @@ If you have any questions, don't be afraid to ask. Good luck!
      - [ ] Test Events Create Form
  - [ ] Overview & Docs update
 
-## Issues
+## Issues & Improvements & Tech dept
  - [ ] Heavy containers
  - [ ] Problem with timezones during insert and fetch 
  - [ ] Event list ordering
  - [ ] Mess in NPM scripts in package json
+ - [ ] Add context to the delete confirmation modal
