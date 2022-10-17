@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { Button, Form, Icon, Input } from 'semantic-ui-react'
 import { DateTimeInput } from 'semantic-ui-calendar-react'
 
-const EventAddForm = ({ onSubmit }) => {
+const EventForm = ({ onSubmit, event = {
+    first_name: "",
+    last_name: "",
+    email: "",
+    event_date: ""
+} }) => {
     const [loading, setLoading] = useState(false)
-    const [form, setForm] = useState({
-        first_name: "",
-        last_name: "",
-        email: "",
-        event_date: ""
-    })
+    const [form, setForm] = useState(event)
 
     // const isFieldValid = (name, val) => {
     //     const schema = {
@@ -107,17 +107,27 @@ const EventAddForm = ({ onSubmit }) => {
                 closable
                 error={errors.email}
             />
-            <Form.Field
-                id='form-button-control-public'
-                control={Button}
-                content={<><Icon name='add to calendar' /> Add Event</>}
-                icon
-                labelPosition='right'
-                primary
-                type='submit'
-            />
+            <Button.Group floated='right'>
+                <Form.Field
+                    id='form-button-control-public'
+                    control={Button}
+                    content={<><Icon name='remove' /> Cancel</>}
+                    icon
+                    labelPosition='right'
+                />
+
+                <Form.Field
+                    id='form-button-control-public'
+                    control={Button}
+                    content={<><Icon name='add to calendar' /> Add Event</>}
+                    icon
+                    labelPosition='right'
+                    primary
+                    type='submit'
+                />
+            </Button.Group>
         </Form>
     )
 }
 
-export default EventAddForm
+export default EventForm

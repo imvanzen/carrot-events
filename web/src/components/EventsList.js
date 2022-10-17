@@ -1,22 +1,11 @@
 import React from 'react'
-import { DateTime } from 'luxon'
-import { Button, Checkbox, Icon, Table } from 'semantic-ui-react'
+import { Button, Icon, Table } from 'semantic-ui-react'
+import EventItem from './EventItem';
 import './EventsList.css';
 
 const EventsList = ({ events }) => {
-    const eventsListMap = events.map(({
-        id,
-        first_name,
-        last_name,
-        email,
-        event_date
-    }) => (
-        <Table.Row key={id}>
-            <Table.Cell>{first_name}</Table.Cell>
-            <Table.Cell>{last_name}</Table.Cell>
-            <Table.Cell>{email}</Table.Cell>
-            <Table.Cell>{DateTime.fromISO(event_date).setLocale('pl-PL').toFormat('FF')}</Table.Cell>
-        </Table.Row>
+    const eventItemsMap = events.map((event) => (
+        <EventItem key={event.id} event={event} />
     ));
     return (
         <Table compact celled color='orange'>
@@ -30,7 +19,7 @@ const EventsList = ({ events }) => {
             </Table.Header>
 
             <Table.Body>
-                {eventsListMap}
+                {eventItemsMap}
             </Table.Body>
 
             <Table.Footer fullWidth>

@@ -1,25 +1,25 @@
 import React from 'react'
+import { Table } from 'semantic-ui-react'
+import { DateTime } from 'luxon'
 
 const EventItem = ({
     event
 }) => {
     const {
+        id,
         first_name,
         last_name,
         email,
         event_date
     } = event;
 
-    const fullName = [first_name, last_name].join(' ')
-
     return (
-        <div className="event-item item">
-            <i className="large calendar middle aligned icon"></i>
-            <div className="content">
-                <a href={`mailto:${email}`} className="header">{fullName}</a>
-                <div className="description">{event_date}</div>
-            </div>
-        </div>
+        <Table.Row key={id}>
+            <Table.Cell>{first_name}</Table.Cell>
+            <Table.Cell>{last_name}</Table.Cell>
+            <Table.Cell>{email}</Table.Cell>
+            <Table.Cell>{DateTime.fromISO(event_date).setLocale('pl-PL').toFormat('FF')}</Table.Cell>
+        </Table.Row>
     )
 }
 
