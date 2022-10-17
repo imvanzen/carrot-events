@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Button, Table } from 'semantic-ui-react'
+import { Button, Confirm, Table } from 'semantic-ui-react'
 import { DateTime } from 'luxon'
 
-const EventItem = ({
-    event
-}) => {
+const EventItem = ({ event, handleDelete }) => {
+    const [open, setOpen] = useState(false)
+    const handleConfirm = async (id) => {
+        await handleDelete(id)
+        setOpen(false)
+    }
     const {
         id,
         first_name,
@@ -14,12 +17,14 @@ const EventItem = ({
         event_date
     } = event;
 
+    const formatEventDate = (date) => DateTime.fromISO(date).setLocale('pl-PL').toFormat('FF')
+
     return (
         <Table.Row key={id}>
             <Table.Cell>{first_name}</Table.Cell>
             <Table.Cell>{last_name}</Table.Cell>
             <Table.Cell>{email}</Table.Cell>
-            <Table.Cell>{DateTime.fromISO(event_date).setLocale('pl-PL').toFormat('FF')}</Table.Cell>
+            <Table.Cell>{formatEventDate(event_date)}</Table.Cell>
             <Table.Cell>
                 <Link to={`/edit/${id}`}>
                     <Button
@@ -32,7 +37,16 @@ const EventItem = ({
                     icon='delete'
                     color='red'
                     compact
-                    onClick={() => console.log(`Delete ${id}`)} />
+                    onClick={() => setOpen(true)} />
+
+                <Confirm
+                    open={open}
+                    header="Event Delete"
+                    content="Do you really want to delete this event?"
+                    onCancel={() => setOpen(false)}
+                    onConfirm={() => handleConfirm(id)}
+                />
+
             </Table.Cell>
         </Table.Row>
     )

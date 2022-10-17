@@ -1,12 +1,16 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Button, Icon, Table } from 'semantic-ui-react'
-import EventItem from './EventItem';
-import './EventsList.css';
+import EventItem from './EventItem'
+import './EventsList.css'
 
-const EventsList = ({ events }) => {
+const EventsList = ({ events, handleDelete }) => {
+
     const eventItemsMap = events.map((event) => (
-        <EventItem key={event.id} event={event} />
+        <EventItem
+            key={event.id}
+            event={event}
+            handleDelete={handleDelete} />
     ));
     return (
         <Table compact celled color='orange'>

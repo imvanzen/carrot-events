@@ -14,7 +14,6 @@ const EventForm = ({ onSubmit, event }) => {
 
     useEffect(() => {
         if (!event) return
-        console.log(event)
         setForm(event)
     }, [event])
 
@@ -49,7 +48,6 @@ const EventForm = ({ onSubmit, event }) => {
     }
 
     const onDateTimeChange = (event, { name, value }) => {
-        console.log({ name, value })
         setForm({
             ...form,
             [name]: value

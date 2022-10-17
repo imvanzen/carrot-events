@@ -15,9 +15,17 @@ const Events = () => {
         fetchData()
     }, [])
 
+    const handleDelete = async (id) => {
+        try {
+            return await eventsApi.remove(id)
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
     return (
         <Grid.Column>
-            <EventsList events={events} />
+            <EventsList events={events} handleDelete={handleDelete} />
         </Grid.Column>
     )
 }
