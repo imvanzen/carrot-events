@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import { Grid } from 'semantic-ui-react'
 import EventsList from '../components/EventsList'
 
 import eventsApi from '../api/events'

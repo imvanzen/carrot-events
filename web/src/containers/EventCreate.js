@@ -1,6 +1,5 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Grid } from 'semantic-ui-react'
 import EventForm from '../components/EventForm'
 
 import eventsApi from '../api/events'

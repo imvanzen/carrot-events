@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { Grid, Message } from 'semantic-ui-react'
+import { Message } from 'semantic-ui-react'
 
 const NoMatch = () => {
     let location = useLocation()

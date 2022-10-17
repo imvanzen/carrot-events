@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { Button, Confirm, Table } from 'semantic-ui-react'
 import { DateTime } from 'luxon'
 
 const EventItem = ({ event, handleDelete }) => {
+    const navigate = useNavigate()
     const [open, setOpen] = useState(false)
     const handleConfirm = async (id) => {
         await handleDelete(id)
@@ -26,27 +27,28 @@ const EventItem = ({ event, handleDelete }) => {
             <Table.Cell>{email}</Table.Cell>
             <Table.Cell>{formatEventDate(event_date)}</Table.Cell>
             <Table.Cell>
-                <Link to={`/edit/${id}`}>
-                    <Button
-                        icon='edit'
-                        color='green'
-                        compact />
-                </Link>
+                <Button
+                    className='event-item-button-delete'
+                    icon='edit'
+                    color='green'
+                    compact
+                    onClick={() => navigate(`/edit/${id}`)} />
 
                 <Button
+                    className='event-item-button-delete'
                     icon='delete'
                     color='red'
                     compact
                     onClick={() => setOpen(true)} />
 
                 <Confirm
+                    id='event-item-confirm-modal'
                     open={open}
                     header="Delete event"
                     content="Do you really want to delete this event?"
                     onCancel={() => setOpen(false)}
                     onConfirm={() => handleConfirm(id)}
                 />
-
             </Table.Cell>
         </Table.Row>
     )
